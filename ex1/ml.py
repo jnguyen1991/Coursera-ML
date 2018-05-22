@@ -79,14 +79,15 @@ for i in range(len(theta0_vals)):
 
 J_vals = J_vals.T
 
-print J_vals
-
-fig = plt.figure()
+fig = plt.figure(figsize=(8,4))
 ax1 = fig.add_subplot(121)
 ax2 = fig.add_subplot(122)
 
 X, Y = np.meshgrid(theta0_vals, theta1_vals)
 
+CS = ax1.contour(X, Y, J_vals, 15)
+ax1.scatter(theta[0],theta[1], c='r')
 
-#CS = ax1.contour(
-
+ax2.plot_surface(X, Y, J_vals, rstride=1, cstride=1, alpha=0.6, cmap=plt.cm.jet)
+ax2.set_zlim(J_vals.min(),J_vals.max())
+ax2.view_init(elev=15, azim=230)
