@@ -7,6 +7,7 @@ Created on Tue May 22 10:28:05 2018
 
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import axes3d
 
 def computeCost(X, Y, theta):
     m = len(Y)
@@ -81,7 +82,7 @@ J_vals = J_vals.T
 
 fig = plt.figure(figsize=(8,4))
 ax1 = fig.add_subplot(121)
-ax2 = fig.add_subplot(122)
+ax2 = fig.add_subplot(122, projection='3d')
 
 X, Y = np.meshgrid(theta0_vals, theta1_vals)
 
